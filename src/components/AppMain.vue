@@ -10,12 +10,11 @@ export default {
 </script>
 
 <template lang="">
-    <div>
-        Main
-    </div>
-    <AppPokemonCard/>
+    <main>
+        <AppPokemonCard/>
+    </main>
 </template>
 
 <style lang="scss" scoped>
-    
+  @use '../styles/partials/variables' as *;  
 </style>
