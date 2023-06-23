@@ -33,6 +33,7 @@ export default {
         background-color: #4949FF;
         border: 6px solid #fff;
         border-radius: 50%;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 1) 0%, rgba(73, 73, 255, 1) 50%);
     }
     .circle {
         width: 50px;
@@ -42,13 +43,13 @@ export default {
         border-radius: 50%;
     }
     .btn-red {
-        background-color: #FF3E3E;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 1) 0%, #FF3E3E 50%);
     }
     .btn-yellow {
-        background-color: #FFFF47;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 1) 0%, #FFFF47 50%);
     }
     .btn-green {
-        background-color: #3D9E3D;
+        background: linear-gradient(120deg, rgba(255, 255, 255, 1) 0%, #3D9E3D 50%);
     }
 }
 </style>
