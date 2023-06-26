@@ -1,37 +1,27 @@
 <script>
 
-import AppSelect from './AppSelect.vue';
-
 export default {
 
-    components: {
-        AppSelect
-    }
 }
 </script>
 
 <template lang="">
-    <header>
-        <div class="container my-5">
-            <div class="row">
-                <div class="col header-col">
-                    <div class="circle big-circle circle-blue"></div>
-                    <div class="circle small-circle circle-red"></div>
-                    <div class="circle small-circle circle-yellow"></div>
-                    <div class="circle small-circle circle-green"></div>
-                </div>
-                <div class="col select-col">
-                    <AppSelect/>
-                </div>
-            </div>
-        </div>
-    </header>
+    <div class="col">
+        <!-- Blue Big Button -->
+        <div class="circle big-circle circle-blue"></div>
+        <!-- Red Button -->
+        <div class="circle small-circle circle-red"></div>
+        <!-- Yellow Button -->
+        <div class="circle small-circle circle-yellow"></div>
+        <!-- Green Button -->
+        <div class="circle small-circle circle-green"></div>
+    </div>
 </template>
 
 <style lang="scss" scoped>
     @use '../styles/partials/variables' as *;
 
-    .header-col {
+    .col {
     display: flex;
     * {
         margin: 0 15px;
@@ -67,8 +57,4 @@ export default {
     }
 }
 
-.select-col {
-    display: flex;
-    justify-content: flex-end;
-}
 </style>

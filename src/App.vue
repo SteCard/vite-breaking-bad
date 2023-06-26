@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
+import AppSelect from './components/AppSelect.vue';
 
 import { store } from './store.js';
 
@@ -10,7 +11,8 @@ export default {
 
   components: {
     AppHeader,
-    AppMain
+    AppMain,
+    AppSelect,
   },
 
   data() {
@@ -20,28 +22,43 @@ export default {
   },
 
   created() {
-    // API
-    axios.get(store.apiUrl).then((result) => {
-      // INSERISCO ARRAY IN STORE.JS
-      store.pokemonList = result.data.docs;
+    // CHIAMATA API POKEMONS TYPE
+    axios.get(store.typeApiUrl).then((result) => {
+      // INSERISCO L'ARRAY DI OGGETTI DENTRO STORE.JS
+      store.pokemonTypeList = result.data;
+    });
 
-      axios.get(store.typeApiUrl).then((result) => {
-        
-        store.pokemonTypeList = result.data;
-
-        store.pokemonTypeList.unshift('All');
-        
-      });
-    })
+    this.getPokemon();
   },
+
+  methods: {
+    getPokemon() {
+      // URL CHIAMATA API
+      let myUrl = store.apiUrl;
+
+      if (store.typeSelected !== 'All') {
+        myUrl += `?eq[type1]=${store.typeSelected}`;
+      }
+      // CHIAMATA API POKEMONS
+      axios.get(myUrl).then((result) => {
+        store.pokemonList = result.data.docs;
+        store.loading = false;
+      })
+    }
+  }
 }
 </script>
 
 <template lang="">
-  <div>
-    <AppHeader />
-    <AppMain />
-  </div>
+    <header>
+        <div class="container my-5">
+            <div class="row">
+                <AppHeader/>
+                <AppSelect @filter="getPokemon"/>
+            </div>
+        </div>  
+    </header>
+    <AppMain/>
 </template>
 
 <style lang="scss">
