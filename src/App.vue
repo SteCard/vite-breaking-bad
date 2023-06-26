@@ -21,9 +21,17 @@ export default {
 
   created() {
     // API
-    axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons').then((result) => {
+    axios.get(store.apiUrl).then((result) => {
       // INSERISCO ARRAY IN STORE.JS
       store.pokemonList = result.data.docs;
+
+      axios.get(store.typeApiUrl).then((result) => {
+        
+        store.pokemonTypeList = result.data;
+
+        store.pokemonTypeList.unshift('All');
+        
+      });
     })
   },
 }

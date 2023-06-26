@@ -1,6 +1,12 @@
 <script>
+
+import AppSelect from './AppSelect.vue';
+
 export default {
-    
+
+    components: {
+        AppSelect
+    }
 }
 </script>
 
@@ -8,11 +14,14 @@ export default {
     <header>
         <div class="container my-5">
             <div class="row">
-                <div class="header-col">
+                <div class="col header-col">
                     <div class="circle big-circle circle-blue"></div>
                     <div class="circle small-circle circle-red"></div>
                     <div class="circle small-circle circle-yellow"></div>
                     <div class="circle small-circle circle-green"></div>
+                </div>
+                <div class="col select-col">
+                    <AppSelect/>
                 </div>
             </div>
         </div>
@@ -56,5 +65,10 @@ export default {
     .circle-green {
         background: linear-gradient(120deg, rgba(255, 255, 255, 1) 0%, #3D9E3D 50%);
     }
+}
+
+.select-col {
+    display: flex;
+    justify-content: flex-end;
 }
 </style>
